@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home Page</title>
+    <title>Report Page</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,16 +14,14 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!-- Start -->
+
         <div class="col-lg-4">
 
-            <!-- Start -->
             <div class="row">
                 <div class="col-md-8" >
                     <h4>Select day(s) to get your report.</h4>
                 </div>
             </div>
-            <!-- End -->
             <form action="#" th:action="@{/getReport}" th:object="${selected}" method="post" >
 
               <div class="row form-group mp">
@@ -31,7 +29,7 @@
                               <div class="row checkbox mp">
                                   <div class="col-md-6">
                                   <li th:each="day : ${days}">
-                                  <input  type="checkbox" th:field="*{checkedDays}" th:value="${day}" />
+                                  <input  type="checkbox" th:field="*{selectedDays}" th:value="${day}" />
                                   <label th:text="${day}">day</label>
                                   </li>
                                   </div>
@@ -51,9 +49,6 @@
 
         </div>
 
-        <!-- End -->
-
-        <!-- Start-->
         <div class="col-lg-8">
             <div class="row">
                 <div class="col-7">
@@ -61,33 +56,31 @@
                 </div>
             </div>
             <div class="row-12">
-             <table class="table table-sm table-dark">
+                <table class="table table-sm table-dark">
                     <thead>
                     <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Day</th>
-                        <th scope="col">Transaction Count</th>
-                        <th scope="col">Revenue Count</th>
-                        <th scope="col">Total Revenue</th>
-                        <th scope="col">Expense count</th>
-                        <th scope="col">Total Expense</th>
-                        <th scope="col">Balance</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Type</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="rp : ${reportSummary}">
-                        <td th:text="${rp.day}"></td>
-                        <td th:text="${rp.countOfDay}"></td>
-                        <td th:text="${rp.countOfRevenues}"></td>
-                        <td th:text="${rp.totalOfRevenues+' $'}"></td>
-                        <td th:text="${rp.countOfExpenses}"></td>
-                        <td th:text="${rp.totalOfExpenses+' $'}"></td>
-                        <td th:text="${rp.remainAmount+' $'}"></td>
+                    <tr th:each="transaction : ${transactions}">
+                        <td th:text="${transaction.id}"></td>
+                        <td th:text="${transaction.day}"></td>
+                        <td th:text="${transaction.time}"></td>
+                        <td th:text="${transaction.description}"></td>
+                        <td th:text="${transaction.amount}"></td>
+                        <td th:text="${transaction.type}"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="row">
-                <table class="table table-sm table-dark">
+<!--                <table class="table table-sm table-dark">
                     <tr>
                         <th scope="col">Transaction Count: </th>
                         <td th:text="${total.count}"></td>
@@ -98,16 +91,17 @@
                         <th scope="col">Balance: </th>
                         <td th:text="${total.balance+' $'}"></td>
                     </tr>
-                </table>
+                </table>-->
             </div>
             <div class="row">
                 <div class="col-md-4">
+<!--
                     <a type="button" class="btn btn-default" href="/download/Report.txt" th:disabled="${total.count==0}?true:false">Download</a>
+-->
 
                 </div>
             </div>
         </div>
-        <!-- End -->
 
     </div>
 </div>
