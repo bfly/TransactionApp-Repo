@@ -19,7 +19,7 @@
 
             <div class="row">
                 <div class="col-md-8" >
-                    <h4>Select day(s) to get your report.</h4>
+                    <h4>Select day(s) to get your transactions list.</h4>
                 </div>
             </div>
             <form action="#" th:action="@{/getReport}" th:object="${selected}" method="post" >
@@ -34,14 +34,13 @@
                                   </li>
                                   </div>
                               </div>
-
                       </ul>
 
               </div>
                 <div class="row">
                     <div class="col-md-6">
-                    <button type="submit"  class="btn btn-success">Calculate</button>
-                        <a href="/report" type="button" class="btn btn-info">reset</a>
+                    <button type="submit"  class="btn btn-success">Search</button>
+                        <a href="/report" type="button" class="btn btn-info">Reset</a>
                     </div>
                 </div>
 
@@ -79,30 +78,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
-<!--                <table class="table table-sm table-dark">
-                    <tr>
-                        <th scope="col">Transaction Count: </th>
-                        <td th:text="${total.count}"></td>
-                        <th scope="col">Total Revenue: </th>
-                        <td th:text="${total.totalRevenue+' $'}"></td>
-                        <th scope="col">Total Expense: </th>
-                        <td th:text="${total.totalExpense+' $'}"></td>
-                        <th scope="col">Balance: </th>
-                        <td th:text="${total.balance+' $'}"></td>
-                    </tr>
-                </table>-->
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-<!--
-                    <a type="button" class="btn btn-default" href="/download/Report.txt" th:disabled="${total.count==0}?true:false">Download</a>
--->
-
-                </div>
-            </div>
         </div>
-
     </div>
 </div>
 </div>

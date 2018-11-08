@@ -2,6 +2,8 @@ package edu.dcccd.lesson11.model;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,10 +13,16 @@ import java.time.format.FormatStyle;
 public class Transaction
 {
     private Long id;
-    private String day;
     private String time;
+    @NotNull
+    @NotEmpty
+    private String day;
+    @NotNull
+    @NotEmpty
     private String description;
+    @NotNull
     private BigDecimal amount;
+    @NotNull
     private String type;
 
     public Transaction(){ this.time = currentTime(); }

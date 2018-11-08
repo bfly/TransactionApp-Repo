@@ -30,16 +30,17 @@
                     <div class="col-sm-3 bg-primary">
                         <input type="radio"  th:value="'EXPENSE'"  th:field="*{type}"><small>Expense</small>
                     </div>
+                    <!--<span class="error" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>-->
                 </div>
 
                 <div class ="row form-group">
                     <div class="col-md-2">
                         <label>Day</label>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" >
                         <select class="form-control" th:field="*{day}">
                             <option value=""  selected=true th:text="*{'Select the day'}">Select the day</option>
-                            <option th:each="da:${days}" th:value="${da}" th:text="${da}"></option>
+                            <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
                         </select>
 
                     </div>
@@ -66,8 +67,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-2 form-group">
                         <button type="submit"  class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 small">
+                        <ul class="list-group-item-danger" th:each="error:${errors}">
+                            <li th:text="${error}">error!</li>
+                        </ul>
                     </div>
                 </div>
             </form>
@@ -76,7 +84,7 @@
 
         <div class="col-lg-8">
             <div class="row">
-                <div class="col-7">
+                <div class="col-md-7">
                     <h4>Table of Transactions</h4>
                 </div>
             </div>
