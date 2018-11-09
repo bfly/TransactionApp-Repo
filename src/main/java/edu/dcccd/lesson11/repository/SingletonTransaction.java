@@ -1,12 +1,13 @@
 package edu.dcccd.lesson11.repository;
 
-import edu.dcccd.lesson11.entity.Transaction;
+import edu.dcccd.lesson11.model.Transaction;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingletonTransaction {
+public class SingletonTransaction
+{
 
     private static SingletonTransaction instance = null;
 

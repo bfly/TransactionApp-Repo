@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home Page</title>
+    <title>Transaction Page</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
 </head>
-
 <body style="background-color: #d5d5d5">
 
 <div th:replace="fragments/header :: header"></div>
@@ -37,12 +36,12 @@
                     <div class="col-md-2">
                         <label>Day</label>
                     </div>
-                    <div class="col-md-6">
-                        <select class="form-control"  th:with="Myday=*{day}" th:field="*{day}">
-                            <option value="" selected=true
-                            th:text="${day!=null}?'Select a day':${Myday}">Select the day</option>
+                    <div class="col-md-6" >
+                        <select class="form-control" th:field="*{day}">
+                            <option value=""  selected=true th:text="*{'Select the day'}">Select the day</option>
                             <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
                         </select>
+
                     </div>
                 </div>
 
