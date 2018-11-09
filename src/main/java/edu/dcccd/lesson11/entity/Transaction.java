@@ -1,4 +1,4 @@
-package edu.dcccd.lesson11.model;
+package edu.dcccd.lesson11.entity;
 
 import lombok.Data;
 

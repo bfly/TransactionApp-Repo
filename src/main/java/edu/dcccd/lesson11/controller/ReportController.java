@@ -1,7 +1,7 @@
 package edu.dcccd.lesson11.controller;
 
-import edu.dcccd.lesson11.model.SelectedDay;
-import edu.dcccd.lesson11.model.Transaction;
+import edu.dcccd.lesson11.entity.SelectedDay;
+import edu.dcccd.lesson11.entity.Transaction;
 import edu.dcccd.lesson11.services.TransactionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
