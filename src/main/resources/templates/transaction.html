@@ -5,15 +5,15 @@
     <title>Home Page</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
+
 <body style="background-color: #d5d5d5">
-<div th:replace="fragments/header :: header">
-</div>
+
+<div th:replace="fragments/header :: header"></div>
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-lg-4">
              <div class="row">
                  <div class="col-md-8" >
@@ -30,6 +30,7 @@
                     <div class="col-sm-3 bg-primary">
                         <input type="radio"  th:value="'EXPENSE'"  th:field="*{type}"><small>Expense</small>
                     </div>
+                    <!--<span class="error" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>-->
                 </div>
 
                 <div class ="row form-group">
@@ -38,11 +39,10 @@
                     </div>
                     <div class="col-md-6">
                         <select class="form-control"  th:with="Myday=*{day}" th:field="*{day}">
-                            <option value=""  selected=true
+                            <option value="" selected=true
                             th:text="${day!=null}?'Select a day':${Myday}">Select the day</option>
-                            <option th:each="da:${days}" th:value="${da}" th:text="${da}"></option>
+                            <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
                         </select>
-
                     </div>
                 </div>
 
@@ -67,23 +67,29 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-2 form-group">
                         <button type="submit"  class="btn btn-primary">Submit</button>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6 small">
+                        <ul class="list-group-item-danger" th:each="error:${errors}">
+                            <li th:text="${error}">error!</li>
+                        </ul>
+                    </div>
+                </div>
             </form>
-
         </div>
 
         <div class="col-lg-8">
             <div class="row">
-                <div class="col-7">
+                <div class="col-md-7">
                     <h4>Table of Transactions</h4>
                 </div>
             </div>
             <div class="row-12">
-                    <table class="table table-sm table-dark">
-                        <thead>
+                <table class="table table-sm table-dark">
+                    <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Day</th>
@@ -92,8 +98,8 @@
                             <th scope="col">Amount</th>
                             <th scope="col">Type</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr th:each="transaction : ${transactions}">
                             <td th:text="${transaction.id}"></td>
                             <td th:text="${transaction.day}"></td>
@@ -102,17 +108,15 @@
                             <td th:text="${transaction.amount}"></td>
                             <td th:text="${transaction.type}"></td>
                         </tr>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>
 
-    </div>
-</div>
-</div>
-            <div th:replace="fragments/footer :: footer"></div>
-    </div>
-</div>
+<div th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>
