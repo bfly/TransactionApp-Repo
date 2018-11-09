@@ -1,4 +1,4 @@
-package edu.dcccd.lesson11;
+package edu.dcccd.lesson12;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Lesson11ApplicationTests {
+public class Lesson12ApplicationTests {
 
     @Test
     public void contextLoads() {
