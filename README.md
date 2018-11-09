@@ -1,2 +1,2 @@
-# TransactionApp-Singleton
-Transaction Application Developed using Spring Boot and Singleton Object as Repository.
+# TransactionApp-Repo
+Transaction Application Developed using Spring Boot and Spring Data JPA as Repository.
